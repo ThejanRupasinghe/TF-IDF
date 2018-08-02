@@ -1,15 +1,15 @@
-from stop_words import get_stop_words
-from nltk.corpus import stopwords
+# from stop_words import get_stop_words
+# from nltk.corpus import stopwords
 from nltk import sent_tokenize, word_tokenize, re
 import codecs
 import string
 
-stop_words = list(get_stop_words('en'))
-nltk_words = list(stopwords.words('english'))
-stop_words.extend(nltk_words)
+# stop_words = list(get_stop_words('en'))
+# nltk_words = list(stopwords.words('english'))
+# stop_words.extend(nltk_words)
 
-final_stop_words = list(set(stop_words))
-final_stop_words.extend([",", ".", "(", ")"])
+# final_stop_words = list(set(stop_words))
+# final_stop_words.extend([",", ".", "(", ")"])
 
 file = open('document1.txt', 'r')
 
@@ -26,8 +26,9 @@ words = word_tokenize(text.translate(string.punctuation))
 
 words = [w for w in words if (not len(w) <= 2)]
 
-words = [w.replace(",", "") for w in words]
+# words = [w.replace(",", "") for w in words]
 
 # u.s.a drops
 words = [w for w in words if w.isalpha()]
-print(words)
+with open(file="1.txt", mode="w+") as f:
+	f.write(" ".join(words))
