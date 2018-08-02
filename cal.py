@@ -22,9 +22,9 @@ text = str(text)
 sentences = sent_tokenize(text)
 words = word_tokenize(text.translate(string.punctuation))
 
-words = [w.lower() for w in words]
+# words = [w.lower() for w in words]
 
-words = [w for w in words if (w not in final_stop_words) and (not len(w) <= 2)]
+words = [w for w in words if (not len(w) <= 2)]
 
 words = [w.replace(",", "") for w in words]
 
